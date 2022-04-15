@@ -6,6 +6,8 @@ import Addinvoice from "../views/Invoice/AddInvoice.vue";
 import Allitems from "../views/Item/AllItems.vue";
 import Additem from "../views/Item/AddItem.vue";
 
+import Allsuppliers from "../views/Supplier/AllSuppliers.vue";
+import Addsupplier from "../views/Supplier/AddSupplier.vue";
 
 Vue.use(VueRouter);
 
@@ -29,6 +31,16 @@ const routes = [
     path: "/additem",
     name: "Additem",
     component: Additem,
+  },
+  {
+    path: "/allsuppliers",
+    name: "Allsuppliers",
+    component: Allsuppliers,
+  },
+  {
+    path: "/addsupplier",
+    name: "Addsupplier",
+    component: Addsupplier,
   },
   // {
   //   path: "/about",

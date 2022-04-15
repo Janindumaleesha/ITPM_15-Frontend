@@ -3,6 +3,10 @@ import VueRouter from "vue-router";
 import Allinvoices from "../views/Invoice/AllInvoices.vue";
 import Addinvoice from "../views/Invoice/AddInvoice.vue";
 
+import Allitems from "../views/Item/AllItems.vue";
+import Additem from "../views/Item/AddItem.vue";
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -15,6 +19,16 @@ const routes = [
     path: "/addinvoice",
     name: "Addinvoice",
     component: Addinvoice,
+  },
+  {
+    path: "/allitems",
+    name: "Allitems",
+    component: Allitems,
+  },
+  {
+    path: "/additem",
+    name: "Additem",
+    component: Additem,
   },
   // {
   //   path: "/about",

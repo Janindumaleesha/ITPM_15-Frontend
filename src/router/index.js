@@ -1,15 +1,21 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
+import Allinvoices from "../views/Invoice/AllInvoices.vue";
+import Addinvoice from "../views/Invoice/AddInvoice.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "Home",
-  //   component: Home,
-  // },
+  {
+    path: "/allinvoices",
+    name: "Allinvoices",
+    component: Allinvoices,
+  },
+  {
+    path: "/addinvoice",
+    name: "Addinvoice",
+    component: Addinvoice,
+  },
   // {
   //   path: "/about",
   //   name: "About",

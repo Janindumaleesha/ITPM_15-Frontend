@@ -1,0 +1,136 @@
+<template>
+    <section>
+        <div class="buttons">
+            <b-button
+                label="Launch image modal"
+                type="is-primary"
+                size="is-medium"
+                @click="isImageModalActive = true" />
+        </div>
+
+        <b-modal v-model="isImageModalActive">
+            <template>
+                <section>
+                    <h2 style="margin-top:20px;margin-left:20px;">New Customer</h2>
+
+                    <b-field horizontal label="Customer Type">
+                        <b-radio v-model="radio"
+                            native-value="default">
+                                Business
+                        </b-radio>    
+                        <b-radio style="margin-right:200px" v-model="radio"
+                            native-value="default">
+                                Individual
+                        </b-radio>                
+                    </b-field>
+
+                    <b-field horizontal label="Primary Contact">
+                        <b-select style="width:400px;" placeholder="Salutation" expanded>
+                            <option value="1">Bulma</option>
+                            <option value="2">Vue.js</option>
+                            <option value="3">Buefy</option>
+                        </b-select>
+                    </b-field> 
+
+                    <b-field horizontal label="">
+                        <b-input style="width:400px;" name="name" placeholder="First Name" expanded></b-input>
+                    </b-field>
+                    
+                    <b-field horizontal label="">
+                        <b-input style="width:400px;" name="name" placeholder="Last Name" expanded></b-input>
+                    </b-field>           
+
+                    <b-field horizontal label="Company Name">
+                        <b-input style="width:400px;" name="name" placeholder="Company Name" expanded></b-input>
+                    </b-field>
+
+                    <b-field horizontal label="Customer Email">
+                        <b-input style="width:400px;" name="name" placeholder="Customer Email" expanded></b-input>
+                    </b-field>
+
+                    <b-field horizontal label="Customer Phone">
+                        <b-input style="width:180px;" name="name" placeholder="Work" expanded></b-input>
+
+                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" expanded></b-input>
+
+                    </b-field>
+
+                    <b-tabs v-model="activeTab">
+                        <b-tab-item label="Other Details">
+                            <b-field horizontal label="Facebook">
+                                <b-input style="width:400px;" name="name" placeholder="" expanded></b-input>
+                            </b-field>
+
+                            <b-field horizontal label="Twitter">
+                                <b-input style="width:400px;" name="name" placeholder="" expanded></b-input>
+                            </b-field>
+                        </b-tab-item>
+
+                        <b-tab-item label="Address">
+                            <h6 style="position:absolute;margin-left:500px;"><b><i>SHIPPING ADDRESS</i></b></h6>
+                            <h6 style="margin-left:80px;"><b><i>BILLING ADDRESS</i></b></h6>
+                            
+                            <b-field horizontal label="Country">
+                                <b-select style="width:200px;" placeholder="Country" expanded>
+                                    <option value="1">Bulma</option>
+                                    <option value="2">Vue.js</option>
+                                    <option value="3">Buefy</option>
+                                </b-select>
+
+                                <b-field horizontal label="Country">
+                                    <b-select style="width:200px;" placeholder="Country" expanded>
+                                        <option value="1">Bulma</option>
+                                        <option value="2">Vue.js</option>
+                                        <option value="3">Buefy</option>
+                                    </b-select>
+                                </b-field>
+                            </b-field>
+
+                            <b-field style="" horizontal label="Address">
+                                <b-input style="width:200px;" maxlength="200" type="textarea"></b-input>
+
+                                <b-field style="" horizontal label="Address">
+                                    <b-input style="width:200px;" maxlength="200" type="textarea"></b-input>
+                                </b-field>
+
+                            </b-field>
+
+                            <b-field horizontal label="City">
+                                <b-input style="width:200px;" name="name" placeholder="City" expanded></b-input>
+
+                                <b-field horizontal label="City">
+                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" expanded></b-input>
+                                </b-field>
+
+                            </b-field>
+
+                        </b-tab-item>
+
+                    </b-tabs>
+
+                    <b-field style="margin-top:20px;margin-left:50px;margin-bottom:20px;">
+                        <b-button type="is-info">Save</b-button>
+                        <b-button style="margin-left:10px;" type="is-info is-light">Cancel</b-button>
+                    </b-field>
+  
+                </section>
+            </template>
+        </b-modal>
+    </section>
+</template>
+
+<script>
+
+    export default {
+        data() {
+            return {
+                isImageModalActive: false,
+                activeTab: 0,
+                showBooks: false
+            }
+        },
+
+
+    };
+</script>
+

@@ -1,15 +1,114 @@
 <template>
     <section>
-        <b-field>
+        <b-field class="container">
             <h2>All Suppliers</h2>
-            <b-input style="margin-left:837px;margin-right:10px;" placeholder="Search..."
+            <b-input style="margin-left:60%;margin-right:10px;" placeholder="Search..."
                 type="search"
                 icon="magnify"
                 icon-clickable
                 @icon-click="searchIconClick">
             </b-input>
-            <b-button type="is-info">+ New</b-button>
+            <b-button type="is-info" @click="isImageModalActive = true">+ New</b-button>
         </b-field>
+
+        <b-modal v-model="isImageModalActive">
+            <template>
+                <section>
+                    <h2 style="margin-top:20px;margin-left:20px;">New Supplier</h2>
+
+                    <b-field horizontal label="Primary Contact">
+                        <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.amount" expanded>
+                            <option value="1">Mr.</option>
+                            <option value="2">Vue.js</option>
+                            <option value="3">Buefy</option>
+                        </b-select>
+                    </b-field> 
+
+                    <b-field horizontal label="">
+                        <b-input style="width:400px;" name="name" placeholder="First Name" v-model="supplier.amount" expanded></b-input>
+                    </b-field>
+                    
+                    <b-field horizontal label="">
+                        <b-input style="width:400px;" name="name" placeholder="Last Name" v-model="supplier.amount" expanded></b-input>
+                    </b-field>           
+
+                    <b-field horizontal label="Company Name">
+                        <b-input style="width:400px;" name="name" placeholder="Company Name" v-model="supplier.amount" expanded></b-input>
+                    </b-field>
+
+                    <b-field horizontal label="Supplier Email">
+                        <b-input style="width:400px;" name="name" placeholder="Supplier Email" v-model="supplier.amount"
+                        expanded></b-input>
+                    </b-field>
+
+                    <b-field horizontal label="Supplier Phone">
+                        <b-input style="width:180px;" name="name" placeholder="Work Phone" v-model="supplier.amount" expanded></b-input>
+
+                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" v-model="supplier.amount" expanded></b-input>
+
+                    </b-field>
+
+                    <b-tabs v-model="activeTab">
+                        <b-tab-item label="Other Details">
+                            <b-field horizontal label="Facebook">
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.amount" expanded></b-input>
+                            </b-field>
+
+                            <b-field horizontal label="Twitter">
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.amount" expanded></b-input>
+                            </b-field>
+                        </b-tab-item>
+
+                        <b-tab-item label="Address">
+                            <h6 style="position:absolute;margin-left:500px;"><b><i>SHIPPING ADDRESS</i></b></h6>
+                            <h6 style="margin-left:80px;"><b><i>BILLING ADDRESS</i></b></h6>
+                            
+                            <b-field horizontal label="Country">
+                                <b-select style="width:200px;" placeholder="Country" v-model="supplier.amount" expanded>
+                                    <option value="1">Bulma</option>
+                                    <option value="2">Vue.js</option>
+                                    <option value="3">Buefy</option>
+                                </b-select>
+
+                                <b-field horizontal label="Country">
+                                    <b-select style="width:200px;" placeholder="Country" v-model="supplier.amount" expanded>
+                                        <option value="1">Bulma</option>
+                                        <option value="2">Vue.js</option>
+                                        <option value="3">Buefy</option>
+                                    </b-select>
+                                </b-field>
+                            </b-field>
+
+                            <b-field style="" horizontal label="Address">
+                                <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.amount"></b-input>
+
+                                <b-field style="" horizontal label="Address">
+                                    <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.amount"></b-input>
+                                </b-field>
+
+                            </b-field>
+
+                            <b-field horizontal label="City">
+                                <b-input style="width:200px;" name="name" placeholder="City" v-model="supplier.amount" expanded></b-input>
+
+                                <b-field horizontal label="City">
+                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" v-model="supplier.amount" expanded></b-input>
+                                </b-field>
+
+                            </b-field>
+
+                        </b-tab-item>
+
+                    </b-tabs>
+
+                    <b-field style="margin-top:20px;margin-left:50px;margin-bottom:20px;">
+                        <b-button type="is-info" @click="addSupplier">Save</b-button>
+                        <b-button style="margin-left:10px;" type="is-info is-light">Cancel</b-button>
+                    </b-field>
+  
+                </section>
+            </template>
+        </b-modal>
 
         <b-tabs>
             <b-tab-item id="customers" label="Table">
@@ -26,30 +125,19 @@
                             <th>UPDATE</th>
                             <th>DELETE</th>
                         </tr>
-                        <tr>
-                            <td>Alfreds</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
+                        <tr v-for="sup in suppliers" :key="sup.index">
+                            <td>{{ sup.sup_id }}</td>
+                            <td>{{ sup.salutation }}</td>
+                            <td>{{ sup.first_Name }}</td>
+                            <td>{{ sup.last_Name }}</td>
+                            <td>{{ sup.company_Name }}</td>
+                            <td>{{ sup.supplier_Email }}</td>
+                            <td>{{ sup.supplier_Work_Phone }}</td>
                             <td style="text-align:center;"><b-button type="is-info">View</b-button></td>
                             <td style="text-align:center;"><b-button type="is-info">Update</b-button></td>
                             <td style="text-align:center;"><b-button type="is-danger" icon-right="delete" /></td>
                         </tr>
-                        <tr>
-                            <td>Berglunds</td>
-                            <td>Christina</td>
-                            <td>Sweden</td>
-                            <td>Sweden</td>
-                            <td>Sweden</td>
-                            <td>Sweden</td>
-                            <td>Sweden</td>
-                            <td style="text-align:center;"><b-button type="is-info">View</b-button></td>
-                            <td style="text-align:center;"><b-button type="is-info">Update</b-button></td>
-                            <td style="text-align:center;"><b-button type="is-danger" icon-right="delete" /></td>
-                        </tr>
+                        
 
                 </b-table>
             </b-tab-item>
@@ -61,7 +149,67 @@
     </section>
 </template>
 
+<script>
 
+import SupplierServices from "../../services/supplierServices"
+
+    export default {
+        data() {
+            return {
+                isImageModalActive: false,
+                activeTab: 0,
+                showBooks: false,
+                supplier: {
+                    sup_id: "",
+                    salutation: "",
+                    first_Name: "",
+                    last_Name: "",
+                    company_Name: "",
+                    supplier_Email: "",
+                    supplier_Work_Phone: "",
+                    supplier_Mobile_Phone: "",
+                    facebook: "",
+                    twitter: "",
+                    billing_address_country: "",
+                    billing_address_address: "",
+                    billing_address_city: "",
+                    shipping_address_country: "",
+                    shipping_address_address: "",
+                    shipping_address_city: "",
+                    
+                },
+                suppliers: [],
+                sup: "",
+                id: "",
+                };
+            
+            
+        },
+        methods: {
+                async getAll() {
+                try {
+                    const response = await SupplierServices.getAllSuppliers();
+                    this.suppliers = response.data;
+                } catch (err) {
+                    console.log(err);
+                }
+                },
+                async addSupplier() {
+                try {
+                    this.supplier = await SupplierServices.addSupplier(this.supplier);
+                    this.$router.push("/");
+                } catch (err) {
+                    console.log(err);
+                }
+                },
+            },
+            mounted: function () {
+                this.getAll();
+            },
+
+
+    };
+</script>
 
 
 <style>
@@ -89,3 +237,4 @@
         color: white;
     }
 </style>
+

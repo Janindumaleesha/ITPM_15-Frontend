@@ -1,85 +1,92 @@
 <template>
-    <div class="sidebar-page">
-        <section class="sidebar-layout">
-             <b-sidebar
-                position="static"
-                :mobile="mobile"
-                :expand-on-hover="expandOnHover"
-                :reduce="reduce"
-                :delay="expandWithDelay ? 500 : null"
-                type="is-light"
-                open
-            >
-                <div class="p-1">
-                    <div class="block">
-                    
-                    </div>
-                    <b-menu class="is-custom-mobile">
-                        <b-menu-list label="Menu" style="">
-                            <b-menu-item icon="information-outline" label="Dashboard"></b-menu-item>
-                            <b-menu-item active expanded icon="settings" label="Items">
-                                <b-menu-item icon="list" label="All Items"></b-menu-item>
-                                <b-menu-item icon="cart" label="Add Items"></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Update Items" disabled></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Generate Report" disabled></b-menu-item>
-                            </b-menu-item>
-                            <b-menu-item icon="settings" label="Customer">
-                                <b-menu-item icon="account" label="All Customer"></b-menu-item>
-                                <b-menu-item icon="cellphone-link" label="Add Customer"></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Update Customer" disabled></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Generate Report" disabled></b-menu-item>
-                            </b-menu-item>
-                            <b-menu-item icon="settings" label="Invoice">
-                                <b-menu-item icon="account" label="All Invoice"></b-menu-item>
-                                <b-menu-item icon="cellphone-link" label="Add Invoice"></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Invoice" disabled></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Update Invoice" disabled></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Generate Report" disabled></b-menu-item>
-                            </b-menu-item>
-                            <b-menu-item icon="settings" label="Supplier">
-                                <b-menu-item icon="account" label="All Supplier"></b-menu-item>
-                                <b-menu-item icon="cellphone-link" label="Add Supplier"></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Update Supplier" disabled></b-menu-item>
-                                <b-menu-item icon="cash-multiple" label="Generate Report" disabled></b-menu-item>
-                            </b-menu-item>
-                        </b-menu-list>
-                    </b-menu>
-                </div>
-            </b-sidebar>
+  <section>
+    <b-sidebar
+      type="is-light"
+      :fullheight="fullheight"
+      :fullwidth="fullwidth"
+      :overlay="overlay"
+      :right="right"
+      v-model="open"
+    >
+      <div class="p-1">
+        
+        <b-menu>
+          <b-menu-list label="Menu">
+            <b-menu-item icon="information-outline" href="http://localhost:8082/dashboard#" label="Dashboard"></b-menu-item>
 
-            <div class="p-1">
-                <b-field>
-                    <b-switch v-model="reduce">Reduced</b-switch>
-                </b-field>
-                <b-field>
-                    <b-switch v-model="expandOnHover">Expand on hover</b-switch>
-                </b-field>
-                <b-field>
-                    <b-switch v-model="expandWithDelay">Hover with delay</b-switch>
-                </b-field>
-                <b-field label="Mobile Layout">
-                    <b-select v-model="mobile">
-                        <option :value="null"></option>
-                        <option value="reduce">Reduced</option>
-                        <option value="hide">Hidden</option>
-                        <option value="fullwidth">Fullwidth</option>
-                    </b-select>
-                </b-field>
-            </div>
-        </section>
-    </div>
+            <b-menu-item active expanded icon="settings">
+              <template #label="props">
+                Item
+                <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
+              </template>
+              <b-menu-item icon="account" href="" label="All Items"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Add Item"></b-menu-item>
+              <b-menu-item icon="account" href="" label="View Item"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Update Item"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Delete Item"></b-menu-item>
+            </b-menu-item>  
+            
+            <b-menu-item icon="settings">
+              <template #label="props">
+                Customer
+                <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
+              </template>
+              <b-menu-item icon="account" href="" label="All Customers"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Add Customer"></b-menu-item>
+              <b-menu-item icon="account" href="" label="View Customer"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Update Customer"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Delete Customer"></b-menu-item>
+            </b-menu-item>  
+
+            <b-menu-item icon="settings">
+              <template #label="props">
+                Invoice
+                <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
+              </template>
+              <b-menu-item icon="account" href="http://localhost:8082/allinvoices" label="All Invoices"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Add Invoice"></b-menu-item>
+              <b-menu-item icon="account" href="" label="View Invoice"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Update Invoice"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Delete Invoice"></b-menu-item>
+            </b-menu-item>
+
+            <b-menu-item icon="settings">
+              <template #label="props">
+                Supplier
+                <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
+              </template>
+              <b-menu-item icon="account" href="" label="All Suppliers"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Add Supplier"></b-menu-item>
+              <b-menu-item icon="account" href="" label="View Supplier"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Update Supplier"></b-menu-item>
+              <b-menu-item icon="account" href="" label="Delete Supplier"></b-menu-item>
+            </b-menu-item>
+
+          </b-menu-list>
+        </b-menu>
+      </div>
+    </b-sidebar>
+    
+    <b-button style="margin-left:10px;margin-top:10px;" type="is-info" size="is-medium" icon-right ="view-dashboard" @click="open = true"/>
+  </section>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      expandOnHover: false,
-      expandWithDelay: false,
-      mobile: "reduce",
-      reduce: false
+      open: false,
+      overlay: true,
+      fullheight: true,
+      fullwidth: false,
+      right: false
     };
   }
 };
 </script>
 
+<style>
+.p-1 {
+  padding: 1em;
+}
+</style>

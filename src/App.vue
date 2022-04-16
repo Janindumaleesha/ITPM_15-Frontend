@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <navbar />
+    
     <sidebar />
-    <foote />
     <router-view />
+    
+    <foote />
   </div>
 </template>
 

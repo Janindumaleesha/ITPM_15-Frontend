@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Allinvoices from "../views/Invoice/AllInvoices.vue";
-import Addinvoice from "../views/Invoice/AddInvoice.vue";
+// import Addinvoice from "../views/Invoice/AddInvoice.vue";
 
 import Allitems from "../views/Item/AllItems.vue";
 import Additem from "../views/Item/AddItem.vue";
@@ -12,6 +12,8 @@ import Addsupplier from "../views/Supplier/AddSupplier.vue";
 import Allcustomers from "../views/Customer/AllCustomers.vue";
 import Addcustomer from "../views/Customer/AddCustomer.vue";
 
+import Dashboard from "../views/Dashboard/Dashboard.vue"
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -20,11 +22,11 @@ const routes = [
     name: "Allinvoices",
     component: Allinvoices,
   },
-  {
-    path: "/addinvoice",
-    name: "Addinvoice",
-    component: Addinvoice,
-  },
+  // {
+  //   path: "/addinvoice",
+  //   name: "Addinvoice",
+  //   component: Addinvoice,
+  // },
   {
     path: "/allitems",
     name: "Allitems",
@@ -54,6 +56,11 @@ const routes = [
     path: "/addcustomer",
     name: "Addcustomer",
     component: Addcustomer,
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
   },
   // {
   //   path: "/about",

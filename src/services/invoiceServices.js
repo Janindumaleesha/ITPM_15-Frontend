@@ -3,7 +3,7 @@ import domain from '../services/domain'
 export default {
     getAllInvoices() {
     //Using axios object
-    return domain().get('invoice/')
+    return domain().get('invoice/getinvoice')
     },
     addInvoice(invoice){
     return domain().post('invoice/addinvoice',invoice)

@@ -17,49 +17,49 @@
                     <h2 style="margin-top:20px;margin-left:20px;">New Supplier</h2>
 
                     <b-field horizontal label="Supplier ID">
-                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" pattern="SUP[0-9]{3}" required expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Primary Contact">
-                        <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.salutation" expanded>
-                            <option value="1">Mr.</option>
-                            <option value="2">Mrs.</option>
-                            <option value="3">Miss.</option>
+                        <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.salutation" required expanded>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Miss.">Miss.</option>
                         </b-select>
                     </b-field> 
 
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="First Name" v-model="supplier.first_Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="First Name" v-model="supplier.first_Name" required expanded></b-input>
                     </b-field>
                     
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="Last Name" v-model="supplier.last_Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Last Name" v-model="supplier.last_Name" required expanded></b-input>
                     </b-field>           
 
                     <b-field horizontal label="Company Name">
-                        <b-input style="width:400px;" name="name" placeholder="Company Name" v-model="supplier.company_Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Company Name" v-model="supplier.company_Name" required expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Email">
                         <b-input style="width:400px;" name="name" placeholder="Supplier Email" v-model="supplier.supplier_Email"
-                        expanded></b-input>
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Phone">
-                        <b-input style="width:180px;" name="name" placeholder="Work Phone" v-model="supplier.supplier_Work_Phone" expanded></b-input>
+                        <b-input style="width:180px;" name="name" placeholder="Work Phone" v-model="supplier.supplier_Work_Phone" pattern = "[0-9]{10}" required expanded></b-input>
 
-                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" v-model="supplier.supplier_Mobile_Phone" expanded></b-input>
+                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" v-model="supplier.supplier_Mobile_Phone" pattern = "[0-9]{10}" required expanded></b-input>
 
                     </b-field>
 
                     <b-tabs v-model="activeTab">
                         <b-tab-item label="Other Details">
                             <b-field horizontal label="Facebook">
-                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.facebook" expanded></b-input>
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.facebook" required expanded></b-input>
                             </b-field>
 
                             <b-field horizontal label="Twitter">
-                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.twitter" expanded></b-input>
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.twitter" required expanded></b-input>
                             </b-field>
                         </b-tab-item>
 
@@ -68,14 +68,14 @@
                             <h6 style="margin-left:80px;"><b><i>BILLING ADDRESS</i></b></h6>
                             
                             <b-field horizontal label="Country">
-                                <b-select style="width:200px;" placeholder="Country" v-model="supplier.billing_address_country" expanded>
+                                <b-select style="width:200px;" placeholder="Country" v-model="supplier.billing_address_country" required expanded>
                                     <option value="1">Sri Lanka</option>
                                     <option value="2">India</option>
                                     <option value="3">Japan</option>
                                 </b-select>
 
                                 <b-field horizontal label="Country">
-                                    <b-select style="width:200px;" placeholder="Country" v-model="supplier.shipping_address_country" expanded>
+                                    <b-select style="width:200px;" placeholder="Country" v-model="supplier.shipping_address_country" required expanded>
                                         <option value="1">Sri Lanka</option>
                                         <option value="2">India</option>
                                         <option value="3">Japan</option>
@@ -84,19 +84,19 @@
                             </b-field>
 
                             <b-field style="" horizontal label="Address">
-                                <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.billing_address_address"></b-input>
+                                <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.billing_address_address" required></b-input>
 
                                 <b-field style="" horizontal label="Address">
-                                    <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.shipping_address_address"></b-input>
+                                    <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.shipping_address_address" required></b-input>
                                 </b-field>
 
                             </b-field>
 
                             <b-field horizontal label="City">
-                                <b-input style="width:200px;" name="name" placeholder="City" v-model="supplier.billing_address_city" expanded></b-input>
+                                <b-input style="width:200px;" name="name" placeholder="City" v-model="supplier.billing_address_city" required expanded></b-input>
 
                                 <b-field horizontal label="City">
-                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" v-model="supplier.shipping_address_city" expanded></b-input>
+                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" v-model="supplier.shipping_address_city" required expanded></b-input>
                                 </b-field>
 
                             </b-field>
@@ -106,7 +106,7 @@
                     </b-tabs>
 
                     <b-field style="margin-top:20px;margin-left:50px;margin-bottom:20px;">
-                        <b-button type="is-info" @click="addSupplier">Save</b-button>
+                        <b-button type="is-info" href="http://localhost:8081/allsuppliers" @click="addSupplier">Save</b-button>
                         <b-button style="margin-left:10px;" type="is-info is-light">Cancel</b-button>
                     </b-field>
   

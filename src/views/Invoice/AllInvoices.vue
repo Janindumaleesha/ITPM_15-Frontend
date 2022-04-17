@@ -26,9 +26,9 @@
             v-model="invoice.cus_name"
             expanded
           >
-            <option value="1">Janindu</option>
-            <option value="2">Nalini</option>
-            <option value="3">Yasasvi</option>
+            <option value="Janindu">Janindu</option>
+            <option value="Nalini">Nalini</option>
+            <option value="Yasasvi">Yasasvi</option>
           </b-select>
         </b-field>
 
@@ -38,6 +38,8 @@
             name="name"
             placeholder="Name"
             v-model="invoice.invoice_id"
+            pattern="INV[0-9]{3}"
+            required
             expanded
           ></b-input>
         </b-field>
@@ -54,6 +56,7 @@
             icon-right-clickable
             @icon-right-click="clearDate"
             trap-focus
+            required
           >
           </b-datepicker>
         </b-field>
@@ -65,9 +68,9 @@
             v-model="invoice.sales_person"
             expanded
           >
-            <option value="1">Gethmi</option>
-            <option value="2">Sandunika</option>
-            <option value="3">Karunarathna</option>
+            <option value="Gethmi">Gethmi</option>
+            <option value="Sandunika">Sandunika</option>
+            <option value="Karunarathna">Karunarathna</option>
           </b-select>
         </b-field>
 
@@ -78,8 +81,8 @@
             v-model="invoice.terms"
             expanded
           >
-            <option value="1">Due end of the Month</option>
-            <option value="2">Due Receipt</option>
+            <option value="Due end of the Month">Due end of the Month</option>
+            <option value="Due Receipt">Due Receipt</option>
           </b-select>
           <b-field horizontal label="Due date">
             <b-datepicker
@@ -189,9 +192,10 @@
         <b-field horizontal label="Amount">
           <b-input
             style="width: 400px"
-            name="name"
-            placeholder="Name"
+            name="Amount"
+            placeholder="Amount"
             v-model="invoice.total_amount"
+            required
             expanded
           ></b-input>
         </b-field>
@@ -219,8 +223,8 @@
             v-model="invoice.payment_mode"
             expanded
           >
-            <option value="1">Cash</option>
-            <option value="2">Visa Card</option>
+            <option value="Cash">Cash</option>
+            <option value="Visa Card">Visa Card</option>
           </b-select>
         </b-field>
 
@@ -229,11 +233,12 @@
             style="width: 400px"
             placeholder="Select"
             v-model="invoice.deposit_to"
+            required
             expanded
           >
-            <option value="1">000 4569 7895 135</option>
-            <option value="2">221 4658 4698 456</option>
-            <option value="3">888 4658 4698 756</option>
+            <option value="000 4569 7895 135">000 4569 7895 135</option>
+            <option value="221 4658 4698 456">221 4658 4698 456</option>
+            <option value="888 4658 4698 756">888 4658 4698 756</option>
           </b-select>
         </b-field>
 
@@ -250,7 +255,7 @@
         <b-field
           style="margin-top: 20px; margin-left: 50px; margin-bottom: 20px"
         >
-          <b-button type="is-info" @click="addInvoice">Save</b-button>
+          <b-button type="is-info" href="http://localhost:8081/allinvoices" @click="addInvoice">Save</b-button>
           <b-button style="margin-left: 10px" type="is-info is-light"
             >Cancel</b-button
           >
@@ -306,6 +311,7 @@ export default {
   data() {
     return {
       isImageModalActive: false,
+      indefinteToast: null,
       invoice: {
         cus_name: "",
         invoice_id: "",
@@ -349,6 +355,7 @@ export default {
       }
     },
   },
+
   mounted: function () {
     this.getAll();
   },
@@ -385,3 +392,11 @@ export default {
   color: white;
 }
 </style>
+
+
+
+
+
+
+        
+

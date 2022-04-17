@@ -17,33 +17,33 @@
                     <h2 style="margin-top:20px;margin-left:20px;">New Item</h2>            
 
                     <b-field horizontal label="Item Code">
-                        <b-input style="width:400px;" name="name" placeholder="Item Code" v-model="item.item_code" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Item Code" v-model="item.item_code" pattern="ITC[0-9]{3}" required expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Item Name">
-                        <b-input style="width:400px;" name="name" placeholder="Item Name" v-model="item.item_name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Item Name" v-model="item.item_name" required expanded></b-input>
                     </b-field>
 
                      <b-field horizontal label="Category">
-                        <b-select style="width:400px;" placeholder="Category" v-model="item.category" expanded>
-                            <option value="1">Wood</option>
-                            <option value="2">Iron</option>
-                            <option value="3">Raw Material</option>
+                        <b-select style="width:400px;" placeholder="Category" v-model="item.category" required expanded>
+                            <option value="Wood">Wood</option>
+                            <option value="Iron">Iron</option>
+                            <option value="Raw Material">Raw Material</option>
                         </b-select>
                     </b-field>
 
                     <b-field horizontal label="Quantity">
-                        <b-input style="width:400px;" name="name" placeholder="Quantity" v-model="item.qty" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Quantity" v-model="item.qty" required expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Unit Price">
-                        <b-input style="width:400px;" name="name" placeholder="Unit Price" v-model="item.unit_price" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Unit Price" v-model="item.unit_price" required expanded></b-input>
                     </b-field>
 
-                    <b-field horizontal label="Payment date">
+                    <b-field horizontal label="Collected Date">
                         <b-datepicker
                             style="width: 400px"
-                            v-model="ite.collected_date"
+                            v-model="item.collected_date"
                             :show-week-number="showWeekNumber"
                             :locale="locale"
                             placeholder="Click to select..."
@@ -57,7 +57,7 @@
                     </b-field>
 
                     <b-field style="margin-top:20px;margin-left:50px;margin-bottom:20px;">
-                        <b-button type="is-info" @click="addItem">Save</b-button>
+                        <b-button type="is-info" href="http://localhost:8081/allitems" @click="addItem">Save</b-button>
                         <b-button style="margin-left:10px;" type="is-info is-light">Cancel</b-button>
                     </b-field>
   
@@ -131,6 +131,7 @@ export default {
     },
     async addItem() {
       try {
+        console.log(this.item);  
         this.item = await ItemServices.addItem(this.item);
         this.$router.push("/");
       } catch (err) {

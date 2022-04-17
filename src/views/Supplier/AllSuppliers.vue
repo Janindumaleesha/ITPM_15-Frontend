@@ -23,8 +23,8 @@
                     <b-field horizontal label="Primary Contact">
                         <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.salutation" expanded>
                             <option value="1">Mr.</option>
-                            <option value="2">Vue.js</option>
-                            <option value="3">Buefy</option>
+                            <option value="2">Mrs.</option>
+                            <option value="3">Miss.</option>
                         </b-select>
                     </b-field> 
 
@@ -69,16 +69,16 @@
                             
                             <b-field horizontal label="Country">
                                 <b-select style="width:200px;" placeholder="Country" v-model="supplier.billing_address_country" expanded>
-                                    <option value="1">Bulma</option>
-                                    <option value="2">Vue.js</option>
-                                    <option value="3">Buefy</option>
+                                    <option value="1">Sri Lanka</option>
+                                    <option value="2">India</option>
+                                    <option value="3">Japan</option>
                                 </b-select>
 
                                 <b-field horizontal label="Country">
                                     <b-select style="width:200px;" placeholder="Country" v-model="supplier.shipping_address_country" expanded>
-                                        <option value="1">Bulma</option>
-                                        <option value="2">Vue.js</option>
-                                        <option value="3">Buefy</option>
+                                        <option value="1">Sri Lanka</option>
+                                        <option value="2">India</option>
+                                        <option value="3">Japan</option>
                                     </b-select>
                                 </b-field>
                             </b-field>

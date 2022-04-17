@@ -2,7 +2,7 @@
     <section>
         <b-field class="container">
             <h2>All Suppliers</h2>
-            <b-input style="margin-left:60%;margin-right:10px;" placeholder="Search..."
+            <b-input style="margin-left:55%;margin-right:10px;" placeholder="Search..."
                 type="search"
                 icon="magnify"
                 icon-clickable
@@ -16,8 +16,12 @@
                 <section>
                     <h2 style="margin-top:20px;margin-left:20px;">New Supplier</h2>
 
+                    <b-field horizontal label="Supplier ID">
+                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" expanded></b-input>
+                    </b-field>
+
                     <b-field horizontal label="Primary Contact">
-                        <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.amount" expanded>
+                        <b-select style="width:400px;" placeholder="Salutation" v-model="supplier.salutation" expanded>
                             <option value="1">Mr.</option>
                             <option value="2">Vue.js</option>
                             <option value="3">Buefy</option>
@@ -25,37 +29,37 @@
                     </b-field> 
 
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="First Name" v-model="supplier.amount" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="First Name" v-model="supplier.first_Name" expanded></b-input>
                     </b-field>
                     
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="Last Name" v-model="supplier.amount" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Last Name" v-model="supplier.last_Name" expanded></b-input>
                     </b-field>           
 
                     <b-field horizontal label="Company Name">
-                        <b-input style="width:400px;" name="name" placeholder="Company Name" v-model="supplier.amount" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Company Name" v-model="supplier.company_Name" expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Email">
-                        <b-input style="width:400px;" name="name" placeholder="Supplier Email" v-model="supplier.amount"
+                        <b-input style="width:400px;" name="name" placeholder="Supplier Email" v-model="supplier.supplier_Email"
                         expanded></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Phone">
-                        <b-input style="width:180px;" name="name" placeholder="Work Phone" v-model="supplier.amount" expanded></b-input>
+                        <b-input style="width:180px;" name="name" placeholder="Work Phone" v-model="supplier.supplier_Work_Phone" expanded></b-input>
 
-                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" v-model="supplier.amount" expanded></b-input>
+                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" v-model="supplier.supplier_Mobile_Phone" expanded></b-input>
 
                     </b-field>
 
                     <b-tabs v-model="activeTab">
                         <b-tab-item label="Other Details">
                             <b-field horizontal label="Facebook">
-                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.amount" expanded></b-input>
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.facebook" expanded></b-input>
                             </b-field>
 
                             <b-field horizontal label="Twitter">
-                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.amount" expanded></b-input>
+                                <b-input style="width:400px;" name="name" placeholder="" v-model="supplier.twitter" expanded></b-input>
                             </b-field>
                         </b-tab-item>
 
@@ -64,14 +68,14 @@
                             <h6 style="margin-left:80px;"><b><i>BILLING ADDRESS</i></b></h6>
                             
                             <b-field horizontal label="Country">
-                                <b-select style="width:200px;" placeholder="Country" v-model="supplier.amount" expanded>
+                                <b-select style="width:200px;" placeholder="Country" v-model="supplier.billing_address_country" expanded>
                                     <option value="1">Bulma</option>
                                     <option value="2">Vue.js</option>
                                     <option value="3">Buefy</option>
                                 </b-select>
 
                                 <b-field horizontal label="Country">
-                                    <b-select style="width:200px;" placeholder="Country" v-model="supplier.amount" expanded>
+                                    <b-select style="width:200px;" placeholder="Country" v-model="supplier.shipping_address_country" expanded>
                                         <option value="1">Bulma</option>
                                         <option value="2">Vue.js</option>
                                         <option value="3">Buefy</option>
@@ -80,19 +84,19 @@
                             </b-field>
 
                             <b-field style="" horizontal label="Address">
-                                <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.amount"></b-input>
+                                <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.billing_address_address"></b-input>
 
                                 <b-field style="" horizontal label="Address">
-                                    <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.amount"></b-input>
+                                    <b-input style="width:200px;" maxlength="200" type="textarea" v-model="supplier.shipping_address_address"></b-input>
                                 </b-field>
 
                             </b-field>
 
                             <b-field horizontal label="City">
-                                <b-input style="width:200px;" name="name" placeholder="City" v-model="supplier.amount" expanded></b-input>
+                                <b-input style="width:200px;" name="name" placeholder="City" v-model="supplier.billing_address_city" expanded></b-input>
 
                                 <b-field horizontal label="City">
-                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" v-model="supplier.amount" expanded></b-input>
+                                    <b-input style="width:200px;margin-right:35px;" name="name" placeholder="City" v-model="supplier.shipping_address_city" expanded></b-input>
                                 </b-field>
 
                             </b-field>

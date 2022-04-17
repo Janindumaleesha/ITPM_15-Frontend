@@ -13,11 +13,15 @@
                 <section>
                     <h2 style="margin-top:20px;margin-left:20px;">New Supplier</h2>
 
+                    <b-field horizontal label="Supplier ID">
+                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" expanded></b-input>
+                    </b-field>
+
                     <b-field horizontal label="Primary Contact">
                         <b-select style="width:400px;" placeholder="Salutation" expanded>
-                            <option value="1">Bulma</option>
-                            <option value="2">Vue.js</option>
-                            <option value="3">Buefy</option>
+                            <option value="1">Mr.</option>
+                            <option value="2">Mrs.</option>
+                            <option value="3">Miss.</option>
                         </b-select>
                     </b-field> 
 
@@ -61,16 +65,16 @@
                             
                             <b-field horizontal label="Country">
                                 <b-select style="width:200px;" placeholder="Country" expanded>
-                                    <option value="1">Bulma</option>
-                                    <option value="2">Vue.js</option>
-                                    <option value="3">Buefy</option>
+                                    <option value="1">Sri Lanka</option>
+                                    <option value="2">India</option>
+                                    <option value="3">Japan</option>
                                 </b-select>
 
                                 <b-field horizontal label="Country">
                                     <b-select style="width:200px;" placeholder="Country" expanded>
-                                        <option value="1">Bulma</option>
-                                        <option value="2">Vue.js</option>
-                                        <option value="3">Buefy</option>
+                                        <option value="1">Sri Lanka</option>
+                                        <option value="2">India</option>
+                                        <option value="3">Japan</option>
                                     </b-select>
                                 </b-field>
                             </b-field>

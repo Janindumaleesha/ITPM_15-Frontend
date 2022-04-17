@@ -2,7 +2,7 @@
     <section>
         <b-field class="container">
             <h2>All Items</h2>
-            <b-input style="margin-left:837px;margin-right:10px;" placeholder="Search..."
+            <b-input style="margin-left:60%;margin-right:10px;" placeholder="Search..."
                 type="search"
                 icon="magnify"
                 icon-clickable
@@ -26,9 +26,9 @@
 
                      <b-field horizontal label="Category">
                         <b-select style="width:400px;" placeholder="Category" v-model="item.category" expanded>
-                            <option value="1">Bulma</option>
-                            <option value="2">Vue.js</option>
-                            <option value="3">Buefy</option>
+                            <option value="1">Wood</option>
+                            <option value="2">Iron</option>
+                            <option value="3">Raw Material</option>
                         </b-select>
                     </b-field>
 
@@ -40,10 +40,10 @@
                         <b-input style="width:400px;" name="name" placeholder="Unit Price" v-model="item.unit_price" expanded></b-input>
                     </b-field>
 
-                    <b-field horizontal label="Collected Date">
+                    <b-field horizontal label="Payment date">
                         <b-datepicker
-                            style="width:400px;"
-                            v-model="item.collected_date"
+                            style="width: 400px"
+                            v-model="ite.collected_date"
                             :show-week-number="showWeekNumber"
                             :locale="locale"
                             placeholder="Click to select..."
@@ -51,12 +51,13 @@
                             :icon-right="selected ? 'close-circle' : ''"
                             icon-right-clickable
                             @icon-right-click="clearDate"
-                            trap-focus>
+                            trap-focus
+                        >
                         </b-datepicker>
                     </b-field>
 
                     <b-field style="margin-top:20px;margin-left:50px;margin-bottom:20px;">
-                        <b-button type="is-info" @click="addInvoice">Save</b-button>
+                        <b-button type="is-info" @click="addItem">Save</b-button>
                         <b-button style="margin-left:10px;" type="is-info is-light">Cancel</b-button>
                     </b-field>
   
@@ -112,11 +113,11 @@ export default {
         category: "",
         qty: "",
         unit_price: "",
-        collected_date: ""
+        collected_date: "",
       },
       items: [],
       ite: "",
-      id: "",
+      id: ""
     };
   },
   methods: {

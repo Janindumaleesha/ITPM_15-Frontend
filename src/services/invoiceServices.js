@@ -8,14 +8,14 @@ export default {
     addInvoice(invoice){
     return domain().post('invoice/addinvoice',invoice)
     },
-    getInvoiceById(id){
-    return domain().get('invoice/'+id)
-    }
-    // updateUser(user){
-    // return domain().put('invoice/'+user._id,user)
+    // getInvoiceById(id){
+    // return domain().get('invoice/'+id)
     // },
-    // deleteUser(id){
-    // return domain().delete('invoice/'+id)
-    // }
+    // updateInvoice(invoices){
+    // return domain().put('invoice/updateinvoice'+invoices._id,invoices)
+    // },
+    deleteInvoice(id){
+    return domain().delete('invoice/deleteinvoice/:invoiceId'+id)
+    }
 };
 

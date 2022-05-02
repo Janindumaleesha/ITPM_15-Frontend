@@ -10,7 +10,7 @@ import Allsuppliers from "../views/Supplier/AllSuppliers.vue";
 // import Addsupplier from "../views/Supplier/AddSupplier.vue";
 
 import Allcustomers from "../views/Customer/AllCustomers.vue";
-import Addcustomer from "../views/Customer/AddCustomer.vue";
+// import Addcustomer from "../views/Customer/AddCustomer.vue";
 
 import Dashboard from "../views/Dashboard/Dashboard.vue"
 
@@ -52,11 +52,11 @@ const routes = [
     name: "Allcustomers",
     component: Allcustomers,
   },
-  {
-    path: "/addcustomer",
-    name: "Addcustomer",
-    component: Addcustomer,
-  },
+  // {
+  //   path: "/addcustomer",
+  //   name: "Addcustomer",
+  //   component: Addcustomer,
+  // },
   {
     path: "/dashboard",
     name: "Dashboard",

@@ -11,19 +11,19 @@
             </b-navbar-item>
         </template>
         <template #start>
-            <b-navbar-item href="http://localhost:8082/dashboard#">
+            <b-navbar-item href="http://localhost:8081/dashboard#">
                 Dashboard
             </b-navbar-item>
-            <b-navbar-item href="">
+            <b-navbar-item href="http://localhost:8081/allitems">
                 Items
             </b-navbar-item>
-            <b-navbar-item href="#">
+            <b-navbar-item href="http://localhost:8081/allcustomers">
                 Customers
             </b-navbar-item>
-            <b-navbar-item href="http://localhost:8082/allinvoices">
+            <b-navbar-item href="http://localhost:8081/allinvoices">
                 Invoices
             </b-navbar-item>
-            <b-navbar-item href="">
+            <b-navbar-item href="http://localhost:8081/allsuppliers">
                 Suppliers
             </b-navbar-item>
             
@@ -61,7 +61,7 @@
                         type="is-danger"
                         message="This email is invalid">
                         <b-input type="email"
-                            value="john@"
+                            value=""
                             maxlength="30">
                         </b-input>
                     </b-field>
@@ -69,19 +69,19 @@
                     <b-field style="width:400px;margin-left:280px;" label="Username"
                         type="is-success"
                         message="This username is available">
-                        <b-input value="johnsilver" maxlength="30"></b-input>
+                        <b-input value="" maxlength="30"></b-input>
                     </b-field>
 
                     <b-field style="width:400px;margin-left:280px;" label="Password">
                         <b-input type="password"
-                            value="iwantmytreasure"
+                            value=""
                             password-reveal>
                         </b-input>
                     </b-field>
 
                     <b-field style="width:400px;margin-left:280px;" label="Confirm Password">
                         <b-input type="password"
-                            value="iwantmytreasure"
+                            value=""
                             password-reveal>
                         </b-input>
                     </b-field>
@@ -106,18 +106,18 @@
                     <b-field style="width:400px;margin-left:280px;" label="Username"
                         type="is-success"
                         message="This username is available">
-                        <b-input style="width:400px;" value="johnsilver" maxlength="30"></b-input>
+                        <b-input style="width:400px;" value="" maxlength="30"></b-input>
                     </b-field>
 
                     <b-field style="width:400px;margin-left:280px;" label="Password">
                         <b-input type="password"
-                            value="iwantmytreasure"
+                            value=""
                             password-reveal>
                         </b-input>
                     </b-field>
 
                     <div style="width:400px;margin-left:280px;" class="buttons">
-                        <b-button type="is-info" expanded>Log in</b-button>
+                        <b-button type="is-info" href='http://localhost:8081/dashboard#' expanded>Log in</b-button>
                     </div>
 
                 </b-modal>

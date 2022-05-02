@@ -12,7 +12,7 @@
                             <!-- Grid column -->
                             <div class="col-md-2">
                                 <h6 class="text-uppercase font-weight-bold">
-                                <a href="#!" class="text-white">About us</a>
+                                <a href="#" class="text-white">About us</a>
                                 </h6>
                             </div>
                             <!-- Grid column -->
@@ -20,7 +20,7 @@
                             <!-- Grid column -->
                             <div class="col-md-2">
                                 <h6 class="text-uppercase font-weight-bold">
-                                <a href="#!" class="text-white">Items</a>
+                                <a href="http://localhost:8081/allitems" class="text-white">Items</a>
                                 </h6>
                             </div>
                             <!-- Grid column -->
@@ -28,7 +28,7 @@
                             <!-- Grid column -->
                             <div class="col-md-2">
                                 <h6 class="text-uppercase font-weight-bold">
-                                <a href="#!" class="text-white">Customers</a>
+                                <a href="http://localhost:8081/allcustomers" class="text-white">Customers</a>
                                 </h6>
                             </div>
                             <!-- Grid column -->
@@ -36,7 +36,7 @@
                             <!-- Grid column -->
                             <div class="col-md-2">
                                 <h6 class="text-uppercase font-weight-bold">
-                                <a href="#!" class="text-white">Invoices</a>
+                                <a href="http://localhost:8081/allinvoices" class="text-white">Invoices</a>
                                 </h6>
                             </div>
                             <!-- Grid column -->
@@ -44,7 +44,7 @@
                             <!-- Grid column -->
                             <div class="col-md-2">
                             <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">Suppliers</a>
+                            <a href="http://localhost:8081/allsuppliers" class="text-white">Suppliers</a>
                             </h6>
                             </div>
                             <!-- Grid column -->
@@ -58,10 +58,10 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-8">
                                 <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                                distinctio earum repellat quaerat voluptatibus placeat nam,
-                                commodi optio pariatur est quia magnam eum harum corrupti
-                                dicta, aliquam sequi voluptate quas.
+                                Welcome to Inventory Management System, an online cloud based
+                                application which helps you manage your organization’s inventory
+                                with ease. This page will guide you through the process of creating
+                                an account, setting up your organization and also get you acquainted with the app.
                                 </p>
                             </div>
                         </div>

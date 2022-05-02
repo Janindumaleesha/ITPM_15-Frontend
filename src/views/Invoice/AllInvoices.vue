@@ -299,7 +299,7 @@
             </td>
 
             <td style="text-align: center">
-              <b-button type="is-danger" icon-right="delete" />
+              <b-button type="is-danger" @click="deleteInvoice(invoice._id)" icon-right="delete" />
             </td>
           </tr>
         </b-table>
@@ -309,7 +309,7 @@
       <b-modal v-model="Update">
         <template>
           <section>
-            <h2 style="margin-top: 20px; margin-left: 20px">New Invoice</h2>
+            <h2 style="margin-top: 20px; margin-left: 20px">Update Invoice</h2>
 
             <b-field horizontal label="Customer Name">
               <b-select
@@ -547,7 +547,7 @@
                 style="width: 400px"
                 name="name"
                 placeholder="Name"
-                v-model="invoice.reference"
+                v-model="invoices.reference"
                 expanded
               ></b-input>
             </b-field>
@@ -573,6 +573,7 @@
 
 <script>
 import InvoiceServices from "../../services/invoiceServices";
+
 export default {
   data() {
     return {
@@ -599,7 +600,7 @@ export default {
         deposit_to: "",
         reference: "",
       },
-      invoices: [],
+      invoices: {},
       inv: "",
       id: "",
     };
@@ -621,16 +622,27 @@ export default {
         console.log(err);
       }
     },
-    async update() {
-
-    },
-    async delete() {
-      
-    },
+    // async updateInvoice() {
+    //   try{
+    //     this.invoices = await InvoiceServices.updateInvoice(this.invoices);
+    //     this.$router.push("/");
+    //   }catch(err){
+    //     console.log(err);
+    //   }
+    // },
+    async deleteInvoice(id) {
+      try {
+        this.id = await InvoiceServices.deleteInvoice(id);
+        this.getAll()
+      } catch (err) {
+        console.log(err);
+      }
+    }
   },
 
   mounted: function () {
     this.getAll();
+    this.update();
   },
 };
 </script>

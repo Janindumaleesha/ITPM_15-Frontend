@@ -295,11 +295,15 @@
               >
             </td>
             <td style="text-align: center">
-              <b-button type="is-info" @click="Update = true">Update</b-button>
+              <b-button type="is-info" @click="displayUpdateModel(inv._id)">Update</b-button>
             </td>
 
             <td style="text-align: center">
-              <b-button type="is-danger" @click="deleteInvoice(invoice._id)" icon-right="delete" />
+              <b-button
+                type="is-danger"
+                @click="confirmCustomDelete(inv._id)"
+                icon-right="delete"
+              />
             </td>
           </tr>
         </b-table>
@@ -309,7 +313,7 @@
       <b-modal v-model="Update">
         <template>
           <section>
-            <h2 style="margin-top: 20px; margin-left: 20px">Update Invoice</h2>
+            <h2 style="margin-top: 20px; margin-left: 20px">Update Invoice{{id}}</h2>
 
             <b-field horizontal label="Customer Name">
               <b-select
@@ -547,7 +551,7 @@
                 style="width: 400px"
                 name="name"
                 placeholder="Name"
-                v-model="invoices.reference"
+                v-model="invoice.reference"
                 expanded
               ></b-input>
             </b-field>
@@ -555,7 +559,7 @@
             <b-field
               style="margin-top: 20px; margin-left: 50px; margin-bottom: 20px"
             >
-              <b-button type="is-info">Update</b-button>
+              <b-button type="is-success" @click="updateInvoice">Update</b-button>
               <b-button style="margin-left: 10px" type="is-info is-light"
                 >Cancel</b-button
               >
@@ -610,6 +614,7 @@ export default {
       try {
         const response = await InvoiceServices.getAllInvoices();
         this.invoices = response.data;
+        console.log(this.invoices)
       } catch (err) {
         console.log(err);
       }
@@ -622,22 +627,55 @@ export default {
         console.log(err);
       }
     },
-    // async updateInvoice() {
-    //   try{
-    //     this.invoices = await InvoiceServices.updateInvoice(this.invoices);
-    //     this.$router.push("/");
-    //   }catch(err){
-    //     console.log(err);
-    //   }
-    // },
+    async updateInvoice() {
+      try{
+        const response = await InvoiceServices.updateInvoice(this.invoice);
+        console.log(response.data)
+        if(response.data) {
+          this.$buefy.toast.open({
+                    message: 'Something happened correctly!',
+                    type: 'is-success'
+                })
+          this.update = false;
+          setTimeout(() =>{
+            this.$router.go() 
+          },1000)
+          
+        }else{
+          console.log();
+        }
+
+      }catch(err){
+        console.log(err);
+      }
+    },
     async deleteInvoice(id) {
       try {
         this.id = await InvoiceServices.deleteInvoice(id);
-        this.getAll()
+        this.getAll();
       } catch (err) {
         console.log(err);
       }
-    }
+    },
+    async displayUpdateModel(id) {
+      this.Update = true;
+      this.id = id;
+      const response = await InvoiceServices.getInvoiceById(id)
+      this.invoice = response.data;
+      console.log(response.data)
+    },
+    confirmCustomDelete(id) {
+      this.$buefy.dialog.confirm({
+        title: "Deleting Invoice",
+        message:
+          "Are you sure you want to <b>delete</b> this invoice? This action cannot be undone.",
+        confirmText: "Delete Invoice",
+        type: "is-danger",
+        hasIcon: true,
+        onConfirm: () => this.deleteInvoice(id)
+        
+      });
+    },
   },
 
   mounted: function () {

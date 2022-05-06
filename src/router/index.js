@@ -23,9 +23,9 @@ const routes = [
     component: Allinvoices,
   },
   // {
-  //   path: "/addinvoice",
-  //   name: "Addinvoice",
-  //   component: Addinvoice,
+  //   path: "/updateinvoice",
+  //   name: "Updateinvoice",
+  //   component: Updateinvoice,
   // },
   {
     path: "/allitems",

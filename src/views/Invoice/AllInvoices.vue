@@ -290,7 +290,7 @@
             <td>{{ inv.due_date }}</td>
             <td>{{ inv.total_amount }}</td>
             <td style="text-align: center">
-              <b-button @click="invoiceById(inv._id)" type="is-info"
+              <b-button @click="viewInvoice(inv._id)" type="is-info"
                 >View</b-button
               >
             </td>
@@ -309,11 +309,97 @@
         </b-table>
       </b-tab-item>
 
+      <b-modal v-model="View">
+        <b-tabs>
+        <p>{{ invoice.cus_name }}'s invoice</p>
+        <b-tab-item id="customers" label="Table">
+          <b-table>
+            <tr>
+              <th>LABEL</th>
+              <th>DETAILS</th>
+            </tr>
+            <tr>
+              <td>Customer Name</td>
+              <td>{{ invoice.cus_name }}</td><br>
+            </tr> 
+            <tr>
+              <td>Invoice ID</td>
+              <td>{{ invoice.invoice_id }}</td><br>
+            </tr> 
+            <tr>
+              <td>Invoice Date</td>
+              <td>{{ invoice.invoice_date }}</td><br>
+            </tr> 
+            <tr>
+              <td>Sales Person</td>
+              <td>{{ invoice.sales_person }}</td><br>
+            </tr> 
+            <tr>
+              <td>Terms</td>
+              <td>{{ invoice.terms }}</td><br>
+            </tr> 
+            <tr>
+              <td>Invoice Due Date</td>
+              <td>{{ invoice.due_date }}</td><br>
+            </tr> 
+            <tr>
+              <td>Item Details</td>
+              <td>{{ invoice.item_details }}</td><br>
+            </tr> 
+            <tr>
+              <td>Quantity</td>
+              <td>{{ invoice.quantity }}</td><br>
+            </tr> 
+            <tr>
+              <td>Rate</td>
+              <td>{{ invoice.rate }}</td><br>
+            </tr> 
+            <tr>
+              <td>Discount</td>
+              <td>{{ invoice.discount }}</td><br>
+            </tr> 
+            <tr>
+              <td>Amount</td>
+              <td>{{ invoice.amount }}</td><br>
+            </tr> 
+            <tr>
+              <td>Customer Note</td>
+              <td>{{ invoice.customer_notes }}</td><br>
+            </tr> 
+            <tr>
+              <td>Shipping Charges</td>
+              <td>{{ invoice.shipping_charges }}</td><br>
+            </tr> 
+            <tr>
+              <td>Total Amount</td>
+              <td>{{ invoice.total_amount }}</td><br>
+            </tr> 
+            <tr>
+              <td>Payment Date</td>
+              <td>{{ invoice.payment_date }}</td><br>
+            </tr> 
+            <tr>
+              <td>Payment Mode</td>
+              <td>{{ invoice.payment_mode }}</td><br>
+            </tr> 
+            <tr>
+              <td>Deposit To</td>
+              <td>{{ invoice.deposit_to }}</td><br>
+            </tr> 
+            <tr>
+              <td>Reference</td>
+              <td>{{ invoice.reference }}</td><br>
+            </tr>  
+          </b-table>
+        </b-tab-item>
+        </b-tabs>    
+      </b-modal>
+
       <!-- Update Part -->
       <b-modal v-model="Update">
         <template>
           <section>
-            <h2 style="margin-top: 20px; margin-left: 20px">Update Invoice{{id}}</h2>
+            <h2 style="margin-top: 20px; margin-left: 20px">Update Invoice</h2>
 
             <b-field horizontal label="Customer Name">
               <b-select
@@ -567,10 +653,6 @@
           </section>
         </template>
       </b-modal>
-
-      <b-tab-item label="Selected">
-        <pre>{{ selected }}</pre>
-      </b-tab-item>
     </b-tabs>
   </v-container>
 </template>
@@ -583,6 +665,7 @@ export default {
     return {
       isImageModalActive: false,
       Update: false,
+      View: false,
       indefinteToast: null,
       invoice: {
         cus_name: "",
@@ -676,6 +759,13 @@ export default {
         
       });
     },
+    async viewInvoice(id) {
+      this.View = true;
+      this.id = id;
+      const response = await InvoiceServices.getInvoiceById(id)
+      this.invoice = response.data;
+      console.log(response.data)
+    }
   },
 
   mounted: function () {

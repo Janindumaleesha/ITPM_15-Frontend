@@ -9,12 +9,12 @@ export default {
     return domain().post('customer/addcustomer',customer)
     },
     getCustomerById(id){
-    return domain().get('customer/getcustomerid/:customerId'+id)
+        return domain().get('customer/getcustomerid/'+id)
+    },
+    updateCustomer(customers){
+        return domain().put('customer/updatecustomer/'+customers._id,customers)
+    },
+    deleteCustomer(id){
+        return domain().delete('customer/deletecustomer/:customerId'+id)
     }
-    // updateUser(user){
-    // return domain().put('invoice/'+user._id,user)
-    // },
-    // deleteUser(id){
-    // return domain().delete('invoice/'+id)
-    // }
 };

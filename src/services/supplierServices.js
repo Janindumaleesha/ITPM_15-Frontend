@@ -9,12 +9,13 @@ export default {
     return domain().post('supplier/addsupplier',supplier)
     },
     getSupplierById(id){
-    return domain().get('supplier/getsupplierid/:supplierId'+id)
+        return domain().get('supplier/getsupplierid/'+id)
+    },
+    updateSupplier(suppliers){
+        
+        return domain().put('supplier/updatesupplier/'+suppliers._id,suppliers)
+    },
+    deleteSupplier(id){
+        return domain().delete('supplier/deletesupplier/:supplierId'+id)
     }
-    // updateUser(user){
-    // return domain().put('invoice/'+user._id,user)
-    // },
-    // deleteUser(id){
-    // return domain().delete('invoice/'+id)
-    // }
 };

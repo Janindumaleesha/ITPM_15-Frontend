@@ -7,7 +7,7 @@ import Allitems from "../views/Item/AllItems.vue";
 import Itemgeneratereport from "../views/Item/GenerateReport.vue";
 
 import Allsuppliers from "../views/Supplier/AllSuppliers.vue";
-// import Addsupplier from "../views/Supplier/AddSupplier.vue";
+import Suppliergeneratereport from "../views/Supplier/GenerateReport.vue";
 
 import Allcustomers from "../views/Customer/AllCustomers.vue";
 import Generatereport from "../views/Customer/GenerateReport.vue";
@@ -42,11 +42,11 @@ const routes = [
     name: "Allsuppliers",
     component: Allsuppliers,
   },
-  // {
-  //   path: "/addsupplier",
-  //   name: "Addsupplier",
-  //   component: Addsupplier,
-  // },
+  {
+    path: "/suppliergeneratereport",
+    name: "Suppliergeneratereport",
+    component: Suppliergeneratereport,
+  },
   {
     path: "/allcustomers",
     name: "Allcustomers",

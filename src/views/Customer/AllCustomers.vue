@@ -291,7 +291,7 @@
       </b-tab-item>
 
       <!-- View Customer -->
-         <b-modal v-model="View">
+      <b-modal v-model="View">
         <b-tabs>
         <p>{{ customer.first_Name }}'s customer</p>
         <b-tab-item id="customers" label="Table">

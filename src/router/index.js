@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Allinvoices from "../views/Invoice/AllInvoices.vue";
-// import Addinvoice from "../views/Invoice/AddInvoice.vue";
+import InvoiceGeneratereport from "../views/Invoice/GenerateReport.vue";
 
 import Allitems from "../views/Item/AllItems.vue";
 // import Additem from "../views/Item/AddItem.vue";
@@ -22,11 +22,11 @@ const routes = [
     name: "Allinvoices",
     component: Allinvoices,
   },
-  // {
-  //   path: "/updateinvoice",
-  //   name: "Updateinvoice",
-  //   component: Updateinvoice,
-  // },
+  {
+    path: "/invoiceGeneratereport",
+    name: "InvoiceGeneratereport",
+    component: InvoiceGeneratereport,
+  },
   {
     path: "/allitems",
     name: "Allitems",

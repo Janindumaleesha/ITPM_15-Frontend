@@ -15,7 +15,7 @@ export default {
         return domain().put('item/updateitem/'+items._id,items)
     },
     deleteItem(id){
-        return domain().delete('item/deleteitem/:ItemId'+id)
+        return domain().delete('item/deleteitem/:itemId'+id)
     }
 };
 

@@ -3,7 +3,7 @@
     <b-field class="container">
       <h2>All Items</h2>
       <b-input
-        style="margin-left: 60%; margin-right: 10px"
+        style="margin-left: 50%; margin-right: 10px"
         placeholder="Search..."
         type="search"
         icon="magnify"
@@ -120,8 +120,8 @@
       <b-tab-item id="customers" label="Table">
         <b-table>
           <tr>
-            <th>ITEM NAME</th>
             <th>ITEM CODE</th>
+            <th>ITEM NAME</th>
             <th>CATEGORY</th>
             <th>QUANTITY</th>
             <th>UNIT PRICE</th>
@@ -283,9 +283,8 @@
             >
               <b-button
                 type="is-info"
-                href="http://localhost:8081/allitems"
                 @click="updateItem"
-                >Save</b-button
+                >Update</b-button
               >
               <b-button style="margin-left: 10px" type="is-info is-light"
                 >Cancel</b-button
@@ -294,10 +293,6 @@
           </section>
         </template>
       </b-modal>
-
-      <b-tab-item label="Selected">
-        <pre>{{ selected }}</pre>
-      </b-tab-item>
     </b-tabs>
   </section>
 </template>
@@ -314,6 +309,7 @@ export default {
     return {
       isImageModalActive: false,
       Update: false,
+      View: false,
       item: {
         item_code: "",
         item_name: "",
@@ -346,22 +342,24 @@ export default {
       }
     },
     async updateItem() {
-      try {
-        const response = await ItemServices.updateItem(this.items);
-        console.log(response.data);
-        if (response.data) {
+      try{
+        const response = await ItemServices.updateItem(this.item)
+        console.log(response.data)
+        if(response.data) {
           this.$buefy.toast.open({
-            message: "Something happened correctly!",
-            type: "is-success",
-          });
+                    message: 'Something happened correctly!',
+                    type: 'is-success'
+                })
           this.update = false;
-          setTimeout(() => {
-            this.$router.go();
-          }, 1000);
-        } else {
+          setTimeout(() =>{
+            this.$router.go() 
+          },1000)
+          
+        }else{
           console.log();
         }
-      } catch (err) {
+
+      }catch(err){
         console.log(err);
       }
     },

@@ -9,13 +9,13 @@ export default {
     return domain().post('item/additem',item)
     },
     getItemById(id){
-    return domain().get('item/'+id)
+        return domain().get('item/getitemid/'+id)
+    },
+    updateItem(items){  
+        return domain().put('item/updateitem/'+items._id,items)
+    },
+    deleteItem(id){
+        return domain().delete('item/deleteitem/:ItemId'+id)
     }
-    // updateUser(user){
-    // return domain().put('invoice/'+user._id,user)
-    // },
-    // deleteUser(id){
-    // return domain().delete('invoice/'+id)
-    // }
 };
 

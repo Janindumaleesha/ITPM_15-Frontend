@@ -4,7 +4,7 @@ import Allinvoices from "../views/Invoice/AllInvoices.vue";
 // import Addinvoice from "../views/Invoice/AddInvoice.vue";
 
 import Allitems from "../views/Item/AllItems.vue";
-// import Additem from "../views/Item/AddItem.vue";
+import Itemgeneratereport from "../views/Item/GenerateReport.vue";
 
 import Allsuppliers from "../views/Supplier/AllSuppliers.vue";
 // import Addsupplier from "../views/Supplier/AddSupplier.vue";
@@ -32,11 +32,11 @@ const routes = [
     name: "Allitems",
     component: Allitems,
   },
-  // {
-  //   path: "/additem",
-  //   name: "Additem",
-  //   component: Additem,
-  // },
+  {
+    path: "/itemgeneratereport",
+    name: "Itemgeneratereport",
+    component: Itemgeneratereport,
+  },
   {
     path: "/allsuppliers",
     name: "Allsuppliers",

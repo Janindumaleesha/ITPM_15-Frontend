@@ -11,9 +11,12 @@
         @icon-click="searchIconClick"
       >
       </b-input>
-      <b-button type="is-info" @click="isImageModalActive = true"
+      <b-button type="is-info" style="margin-right: 10px" @click="isImageModalActive = true"
         >+ New</b-button
       >
+
+      <b-button type="is-info is-light" icon-right="download" @click="printDownload"/>
+      <Download v-show="false" ref="DownloadComp" />
     </b-field>
 
     <b-modal v-model="isImageModalActive">
@@ -301,7 +304,12 @@
 
 <script>
 import ItemServices from "../../services/itemServices";
+import Download from "../Item/GenerateReport.vue";
+
 export default {
+  components: {
+    Download,
+  },  
   data() {
     return {
       isImageModalActive: false,
@@ -390,6 +398,14 @@ export default {
         onConfirm: () => this.deleteItem(id)
         
       });
+    },
+    printDownload () {
+      let w = window.open()
+      w.document.write(this.$refs.DownloadComp.$el.innerHTML)
+      w.document.close()
+      w.setTimeout(function () {
+      w.print()
+      }, 1000)
     },
   },
   mounted: function () {

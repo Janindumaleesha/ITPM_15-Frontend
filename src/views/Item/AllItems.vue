@@ -189,7 +189,7 @@
                 <td>{{ item.collected_date }}</td>
                 <br />
               </tr>
-             
+            </b-table> 
           </b-tab-item>
         </b-tabs>
       </b-modal>

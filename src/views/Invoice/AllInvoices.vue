@@ -3,17 +3,20 @@
     <b-field class="container">
       <h2>All Invoices</h2>
       <b-input
-        style="margin-left: 55%; margin-right: 10px"
+        style="margin-left: 50%; margin-right: 10px"
         placeholder="Search..."
         type="search"
         icon="magnify"
         icon-clickable
         @icon-click="searchIconClick"
+         
       >
       </b-input>
-      <b-button type="is-info" @click="isImageModalActive = true"
+      <b-button type="is-info" style="margin-right: 10px" @click="isImageModalActive = true"
         >+ New</b-button
       >
+      <b-button type="is-info is-light" icon-right="download" @click="printDownload"/>
+      <Download v-show="false" ref="DownloadComp" />
     </b-field>
 
     <!-- Add Invoice Part   -->
@@ -659,10 +662,15 @@
 
 <script>
 import InvoiceServices from "../../services/invoiceServices";
+import Download from "../Invoice/GenerateReport.vue"
 
 export default {
+  components: {
+    Download,
+  },
   data() {
     return {
+      search: "",
       isImageModalActive: false,
       Update: false,
       View: false,
@@ -765,6 +773,14 @@ export default {
       const response = await InvoiceServices.getInvoiceById(id)
       this.invoice = response.data;
       console.log(response.data)
+    },
+    printDownload () {
+      let w = window.open()
+      w.document.write(this.$refs.DownloadComp.$el.innerHTML)
+      w.document.close()
+      w.setTimeout(function () {
+      w.print()
+      }, 1000)
     }
   },
 

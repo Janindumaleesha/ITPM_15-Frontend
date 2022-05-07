@@ -1,16 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Allinvoices from "../views/Invoice/AllInvoices.vue";
-// import Addinvoice from "../views/Invoice/AddInvoice.vue";
+import InvoiceGeneratereport from "../views/Invoice/GenerateReport.vue";
 
 import Allitems from "../views/Item/AllItems.vue";
-import Additem from "../views/Item/AddItem.vue";
+import Itemgeneratereport from "../views/Item/GenerateReport.vue";
 
 import Allsuppliers from "../views/Supplier/AllSuppliers.vue";
-import Addsupplier from "../views/Supplier/AddSupplier.vue";
+// import Addsupplier from "../views/Supplier/AddSupplier.vue";
 
 import Allcustomers from "../views/Customer/AllCustomers.vue";
-import Addcustomer from "../views/Customer/AddCustomer.vue";
+import Generatereport from "../views/Customer/GenerateReport.vue";
 
 import Dashboard from "../views/Dashboard/Dashboard.vue"
 
@@ -22,40 +22,40 @@ const routes = [
     name: "Allinvoices",
     component: Allinvoices,
   },
-  // {
-  //   path: "/addinvoice",
-  //   name: "Addinvoice",
-  //   component: Addinvoice,
-  // },
+  {
+    path: "/invoiceGeneratereport",
+    name: "InvoiceGeneratereport",
+    component: InvoiceGeneratereport,
+  },
   {
     path: "/allitems",
     name: "Allitems",
     component: Allitems,
   },
   {
-    path: "/additem",
-    name: "Additem",
-    component: Additem,
+    path: "/itemgeneratereport",
+    name: "Itemgeneratereport",
+    component: Itemgeneratereport,
   },
   {
     path: "/allsuppliers",
     name: "Allsuppliers",
     component: Allsuppliers,
   },
-  {
-    path: "/addsupplier",
-    name: "Addsupplier",
-    component: Addsupplier,
-  },
+  // {
+  //   path: "/addsupplier",
+  //   name: "Addsupplier",
+  //   component: Addsupplier,
+  // },
   {
     path: "/allcustomers",
     name: "Allcustomers",
     component: Allcustomers,
   },
   {
-    path: "/addcustomer",
-    name: "Addcustomer",
-    component: Addcustomer,
+    path: "/generatereport",
+    name: "Generatereport",
+    component: Generatereport,
   },
   {
     path: "/dashboard",

@@ -11,19 +11,19 @@
             </b-navbar-item>
         </template>
         <template #start>
-            <b-navbar-item href="http://localhost:8082/dashboard#">
+            <b-navbar-item href="http://localhost:8081/dashboard#">
                 Dashboard
             </b-navbar-item>
-            <b-navbar-item href="">
+            <b-navbar-item href="http://localhost:8081/allitems">
                 Items
             </b-navbar-item>
-            <b-navbar-item href="#">
+            <b-navbar-item href="http://localhost:8081/allcustomers">
                 Customers
             </b-navbar-item>
-            <b-navbar-item href="http://localhost:8082/allinvoices">
+            <b-navbar-item href="http://localhost:8081/allinvoices">
                 Invoices
             </b-navbar-item>
-            <b-navbar-item href="">
+            <b-navbar-item href="http://localhost:8081/allsuppliers">
                 Suppliers
             </b-navbar-item>
             
@@ -47,80 +47,51 @@
                         Log in
                     </a>
                 </div>
-                <b-modal v-model="signUp">
-                    <h3 style="margin-left:280px;">SIGN UP</h3>
-                    <b-field style="width:400px;margin-left:280px;" label="First Name">
-                        <b-input  v-model="name"></b-input>
-                    </b-field>
 
-                    <b-field style="width:400px;margin-left:280px;" label="Last Name">
-                        <b-input v-model="name"></b-input>
-                    </b-field>
-
-                    <b-field style="width:400px;margin-left:280px;" label="Email"
-                        type="is-danger"
-                        message="This email is invalid">
-                        <b-input type="email"
-                            value="john@"
-                            maxlength="30">
-                        </b-input>
-                    </b-field>
-
-                    <b-field style="width:400px;margin-left:280px;" label="Username"
-                        type="is-success"
-                        message="This username is available">
-                        <b-input value="johnsilver" maxlength="30"></b-input>
-                    </b-field>
-
-                    <b-field style="width:400px;margin-left:280px;" label="Password">
-                        <b-input type="password"
-                            value="iwantmytreasure"
-                            password-reveal>
-                        </b-input>
-                    </b-field>
-
-                    <b-field style="width:400px;margin-left:280px;" label="Confirm Password">
-                        <b-input type="password"
-                            value="iwantmytreasure"
-                            password-reveal>
-                        </b-input>
-                    </b-field>
-
-                    <b-field style="width:400px;margin-left:280px;" >
-                        <b-checkbox v-model="checkboxCustom"
-                            true-value="Yes"
-                            false-value="No">
-                            {{ checkboxCustom }}
-                        </b-checkbox>
-                        <b-field label="I agree to the Terms of Service and Privacy Policy"></b-field>
-                            
-                    </b-field>
-
-                    <div style="width:400px;margin-left:280px;" class="buttons">
-                        <b-button style="width:400px;" type="is-info" expanded>Sign Up</b-button>
-                    </div>
-
-                </b-modal>
                 <b-modal v-model="logIn">
-                    <h3 style="margin-left:280px;">LOGIN</h3>
-                    <b-field style="width:400px;margin-left:280px;" label="Username"
-                        type="is-success"
-                        message="This username is available">
-                        <b-input style="width:400px;" value="johnsilver" maxlength="30"></b-input>
-                    </b-field>
+                    <form action="">
+                        <div class="modal-card" style="width: auto">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Login</p>
+                                <button
+                                    type="button"
+                                    class="delete"
+                                    @click="$emit('close')"/>
+                            </header>
+                            <section class="modal-card-body">
+                                <b-field label="Email">
+                                    <b-input
+                                        type="email"
+                                        :value="email"
+                                        placeholder="Your email"
+                                        required>
+                                    </b-input>
+                                </b-field>
 
-                    <b-field style="width:400px;margin-left:280px;" label="Password">
-                        <b-input type="password"
-                            value="iwantmytreasure"
-                            password-reveal>
-                        </b-input>
-                    </b-field>
+                                <b-field label="Password">
+                                    <b-input
+                                        type="password"
+                                        :value="password"
+                                        password-reveal
+                                        placeholder="Your password"
+                                        required>
+                                    </b-input>
+                                </b-field>
 
-                    <div style="width:400px;margin-left:280px;" class="buttons">
-                        <b-button type="is-info" expanded>Log in</b-button>
-                    </div>
-
+                                <b-checkbox>Remember me</b-checkbox>
+                            </section>
+                            <footer class="modal-card-foot">
+                                <b-button
+                                    label="Close"
+                                    @click="$emit('close')" />
+                                <b-button
+                                    label="Login"
+                                    type="is-primary" />
+                            </footer>
+                        </div>
+                    </form>
                 </b-modal>
+
             </b-navbar-item>
         </template>
     </b-navbar>
@@ -133,6 +104,18 @@
                 signUp: false,
                 logIn: false
             }
-        }
+        },
+        // methods: {
+        //     logIn() {
+        //         this.$buefy.modal.open({
+        //             parent: this,
+        //             component: ModalForm,
+        //             hasModalCard: true,
+        //             customClass: 'custom-class custom-class-2',
+        //             trapFocus: true
+        //         })
+        //     }
+        // }
+        
     }
 </script>

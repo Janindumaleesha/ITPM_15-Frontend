@@ -14,11 +14,11 @@
                     <h2 style="margin-top:20px;margin-left:20px;">New Supplier</h2>
 
                     <b-field horizontal label="Supplier ID">
-                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Supplier ID" v-model="supplier.sup_id" expanded pattern="SUP[0-9]{3}" required></b-input>
                     </b-field>
 
                     <b-field horizontal label="Primary Contact">
-                        <b-select style="width:400px;" placeholder="Salutation" expanded>
+                        <b-select style="width:400px;" placeholder="Salutation" expanded required>
                             <option value="1">Mr.</option>
                             <option value="2">Mrs.</option>
                             <option value="3">Miss.</option>
@@ -26,25 +26,25 @@
                     </b-field> 
 
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="First Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="First Name" expanded required></b-input>
                     </b-field>
                     
                     <b-field horizontal label="">
-                        <b-input style="width:400px;" name="name" placeholder="Last Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Last Name" expanded required></b-input>
                     </b-field>           
 
                     <b-field horizontal label="Company Name">
-                        <b-input style="width:400px;" name="name" placeholder="Company Name" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Company Name" expanded required></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Email">
-                        <b-input style="width:400px;" name="name" placeholder="Supplier Email" expanded></b-input>
+                        <b-input style="width:400px;" name="name" placeholder="Supplier Email" expanded pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required></b-input>
                     </b-field>
 
                     <b-field horizontal label="Supplier Phone">
-                        <b-input style="width:180px;" name="name" placeholder="Work Phone" expanded></b-input>
+                        <b-input style="width:180px;" name="name" placeholder="Work Phone" expanded pattern = "[0-9]{10}" required></b-input>
 
-                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" expanded></b-input>
+                        <b-input style="width:180px;margin-right:340px;" name="name" placeholder="Mobile" expanded pattern = "[0-9]{10}" required></b-input>
 
                     </b-field>
 

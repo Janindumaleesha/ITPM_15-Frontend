@@ -52,7 +52,7 @@
                 Supplier
                 <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'"></b-icon>
               </template>
-              <b-menu-item icon="account" href="http://localhost:8081/allcustomers" label="All Suppliers"></b-menu-item>
+              <b-menu-item icon="account" href="http://localhost:8081/allsuppliers" label="All Suppliers"></b-menu-item>
               <b-menu-item icon="account" href="" label="View Supplier"></b-menu-item>
               <b-menu-item icon="account" href="" label="Update Supplier"></b-menu-item>
               <b-menu-item icon="account" href="" label="Delete Supplier"></b-menu-item>

@@ -137,7 +137,6 @@
                   name="name"
                   placeholder=""
                   v-model="customer.facebook"
-                  required
                   expanded
                 ></b-input>
               </b-field>
@@ -148,7 +147,6 @@
                   name="name"
                   placeholder=""
                   v-model="customer.twitter"
-                  required
                   expanded
                 ></b-input>
               </b-field>
@@ -167,7 +165,6 @@
                   style="width: 200px"
                   placeholder="Country"
                   v-model="customer.billing_address_country"
-                  required
                   expanded
                 >
                   <option value="Sri Lanka">Sri Lanka</option>
@@ -180,7 +177,6 @@
                     style="width: 200px"
                     placeholder="Country"
                     v-model="customer.shipping_address_country"
-                    required
                     expanded
                   >
                     <option value="Sri Lanka">Sri Lanka</option>
@@ -196,7 +192,6 @@
                   maxlength="200"
                   type="textarea"
                   v-model="customer.billing_address_address"
-                  required
                 ></b-input>
 
                 <b-field style="" horizontal label="Address">
@@ -205,7 +200,6 @@
                     maxlength="200"
                     type="textarea"
                     v-model="customer.shipping_address_address"
-                    required
                   ></b-input>
                 </b-field>
               </b-field>
@@ -216,7 +210,6 @@
                   name="name"
                   placeholder="City"
                   v-model="customer.billing_address_city"
-                  required
                   expanded
                 ></b-input>
 
@@ -226,7 +219,6 @@
                     name="name"
                     placeholder="City"
                     v-model="customer.shipping_address_city"
-                    required
                     expanded
                   ></b-input>
                 </b-field>

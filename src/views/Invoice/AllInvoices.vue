@@ -730,11 +730,12 @@ export default {
       try{
         const response = await InvoiceServices.updateInvoice(this.invoice);
         console.log(response.data)
+        alert('Updated Successfully!')
         if(response.data) {
-          this.$buefy.toast.open({
-                    message: 'Something happened correctly!',
-                    type: 'is-success'
-                })
+          // this.$buefy.toast.open({
+          //           message: 'Something happened correctly!',
+          //           type: 'is-success'
+          //       })
           this.update = false;
           setTimeout(() =>{
             this.$router.go() 

@@ -651,6 +651,7 @@ export default {
       try{
         const response = await SupplierServices.updateSupplier(this.supplier);
         console.log(response.data)
+        alert('Updated Successfully!')
         if(response.data) {
           this.$buefy.toast.open({
                     message: 'Something happened correctly!',

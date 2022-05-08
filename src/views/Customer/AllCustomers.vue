@@ -8,6 +8,7 @@
         type="search"
         icon="magnify"
         icon-clickable
+        v-model="search"
         @icon-click="searchIconClick"
       >
       </b-input>
@@ -267,8 +268,8 @@
             <th>UPDATE</th>
             <th>DELETE</th>
           </tr>
-          <tr v-for="cus in customers" :key="cus.index">
-            <td>{{ cus.cus_id }}</td>
+          <tr v-for="cus in filteredCustomer" :key="cus.index">
+            <td>{{ cus.cus_id | to-uppercase }}</td>
             <td>{{ cus.customer_type }}</td>
             <td>{{ cus.salutation }}</td>
             <td>{{ cus.first_Name }}</td>
@@ -642,10 +643,18 @@ export default {
         shipping_address_address: "",
         shipping_address_city: "",
       },
+      search:"",
       customers: [],
       cus: "",
       id: "",
     };
+  },
+  computed:{
+    filteredCustomer:function(){
+      return this.customers.filter((cus) => {
+        return cus.cus_id.match(this.search)
+      });
+    }
   },
   methods: {
     async getAll() {

@@ -7,6 +7,8 @@
         placeholder="Search..."
         type="search"
         icon="magnify"
+        name="item"
+        v-model="search"
         icon-clickable
         @icon-click="searchIconClick"
       >
@@ -130,8 +132,8 @@
             <th>UPDATE</th>
             <th>DELETE</th>
           </tr>
-          <tr v-for="ite in items" :key="ite.index">
-            <td>{{ ite.item_code }}</td>
+          <tr v-for="ite in filteredItems" :key="ite.index">
+            <td>{{ ite.item_code | to-uppercase }}</td>
             <td>{{ ite.item_name }}</td>
             <td>{{ ite.category }}</td>
             <td>{{ ite.qty }}</td>
@@ -318,10 +320,18 @@ export default {
         unit_price: "",
         collected_date: "",
       },
+      search:"",
       items: [],
       ite: "",
       id: "",
     };
+  },
+  computed:{
+    filteredItems:function(){
+      return this.items.filter((ite) => {
+        return ite.item_code.match(this.search)
+      });
+    }
   },
   methods: {
     async getAll() {

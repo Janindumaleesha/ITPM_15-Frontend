@@ -7,6 +7,7 @@
         placeholder="Search..."
         type="search"
         icon="magnify"
+        v-model="search"
         icon-clickable
         @icon-click="searchIconClick"
       >
@@ -253,8 +254,8 @@
             <th>UPDATE</th>
             <th>DELETE</th>
           </tr>
-          <tr v-for="sup in suppliers" :key="sup.index">
-            <td>{{ sup.sup_id }}</td>
+          <tr v-for="sup in filteredSupplier" :key="sup.index">
+            <td>{{ sup.sup_id | to-uppercase }}</td>
             <td>{{ sup.salutation }}</td>
             <td>{{ sup.first_Name }}</td>
             <td>{{ sup.last_Name }}</td>
@@ -609,10 +610,18 @@ export default {
         shipping_address_address: "",
         shipping_address_city: "",
       },
+      search:"",
       suppliers: [],
       sup: "",
       id: "",
     };
+  },
+  computed:{
+    filteredSupplier:function(){
+      return this.suppliers.filter((sup) => {
+        return sup.sup_id.match(this.search)
+      });
+    }
   },
   methods: {
     async getAll() {

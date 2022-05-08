@@ -7,6 +7,7 @@
         placeholder="Search..."
         type="search"
         icon="magnify"
+        v-model="search"
         icon-clickable
         @icon-click="searchIconClick"
          
@@ -286,9 +287,9 @@
             <th>UPDATE</th>
             <th>DELETE</th>
           </tr>
-          <tr v-for="inv in invoices" :key="inv.index">
+          <tr v-for="inv in filteredInvoices" :key="inv.index">
+            <td>{{ inv.invoice_id | to-uppercase }}</td>
             <td>{{ inv.invoice_date }}</td>
-            <td>{{ inv.invoice_id }}</td>
             <td>{{ inv.cus_name }}</td>
             <td>{{ inv.due_date }}</td>
             <td>{{ inv.total_amount }}</td>
@@ -670,7 +671,6 @@ export default {
   },
   data() {
     return {
-      search: "",
       isImageModalActive: false,
       Update: false,
       View: false,
@@ -695,10 +695,18 @@ export default {
         deposit_to: "",
         reference: "",
       },
-      invoices: {},
+      search: "",
+      invoices: [],
       inv: "",
       id: "",
     };
+  },
+  computed:{
+    filteredInvoices:function(){
+      return this.invoices.filter((inv) => {
+        return inv.invoice_id.match(this.search)
+      });
+    }
   },
   methods: {
     async getAll() {
@@ -783,7 +791,6 @@ export default {
       }, 1000)
     }
   },
-
   mounted: function () {
     this.getAll();
     this.update();

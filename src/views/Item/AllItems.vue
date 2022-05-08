@@ -355,6 +355,7 @@ export default {
       try{
         const response = await ItemServices.updateItem(this.item)
         console.log(response.data)
+        alert('Updated Successfully!')
         if(response.data) {
           this.$buefy.toast.open({
                     message: 'Something happened correctly!',

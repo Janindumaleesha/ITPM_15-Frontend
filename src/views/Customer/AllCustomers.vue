@@ -677,6 +677,7 @@ export default {
       try{
         const response = await CustomerServices.updateCustomer(this.customer);
         console.log(response.data)
+        alert('Updated Successfully!')
         if(response.data) {
           this.$buefy.toast.open({
                     message: 'Something happened correctly!',
